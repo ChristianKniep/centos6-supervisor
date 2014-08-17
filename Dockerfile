@@ -2,11 +2,9 @@
 FROM centos:centos6
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
-## supervisord
-RUN yum install -y python-meld3 python-setuptools
-### Old version w/o syslog
-RUN easy_install pip
-RUN pip install supervisor
+### PIP
+ADD etc/yum.repos.d/qnib.repo /etc/yum.repos.d/qnib.repo
+RUN yum install -y python-pip python-supervisor
 ADD etc/supervisord.conf /etc/supervisord.conf
 ### \WORKAROUND
 RUN mkdir -p /var/log/supervisor
