@@ -4,7 +4,7 @@ MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 ### PIP
 ADD etc/yum.repos.d/qnib.repo /etc/yum.repos.d/qnib.repo
-RUN yum install -y python-pip python-supervisor
+RUN yum install -y python-setuptools python-supervisor
 ADD etc/supervisord.conf /etc/supervisord.conf
 ### \WORKAROUND
 RUN mkdir -p /var/log/supervisor
